@@ -1,0 +1,51 @@
+.container {
+  z-index: 1000;
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  max-width: 520px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.title {
+  margin-right: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.closeButton {
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border: 0;
+}
+
+.closeButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.closeButton:active {
+  transform: scale(0.9);
+}

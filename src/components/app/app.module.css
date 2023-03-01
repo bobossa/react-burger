@@ -1,0 +1,17 @@
+.app {
+    background-color: rgba(19, 19, 22, 1);
+    min-height: 100vh;
+}
+.main {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.main_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+    justify-items: space-between;
+    grid-gap: 40px;
+}
