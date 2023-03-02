@@ -19,7 +19,7 @@ const Modal = ({ children, onClose, title = "" }) => {
     return () => {
       document.removeEventListener("keyup", handleEscape);
     };
-  });
+  }, []);
 
   const contentModal = (
     <>
@@ -48,8 +48,8 @@ const Modal = ({ children, onClose, title = "" }) => {
 
 Modal.propTypes = {
   children: PropTypes.element.isRequired,
-  onClose: PropTypes.func.isRequired,
   title: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Modal;

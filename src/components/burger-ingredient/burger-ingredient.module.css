@@ -1,0 +1,22 @@
+.price_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-content: center;
+  grid-gap: 32px 24px;
+  margin: 0;
+  list-style: none;
+}
+
+.list_item {
+  position: relative;
+}
