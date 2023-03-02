@@ -3,7 +3,7 @@ import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
 import Modal from "../modal/modal";
 import IngredientDetails from "../ingredients-details/ingredient-details";
 
-import burgerIngredientsStyle from "./burger-ingredients.module.css";
+import style from "./burger-ingredients.module.css";
 import PropTypes from "prop-types";
 import { IngredientType } from "../../utils/prop-types";
 import BurgerIngredientGroup from "../burger-inrgredient-group/burger-inrgredient-group";
@@ -28,11 +28,11 @@ const BurgerIngredients = ({ data }) => {
           />
         </Modal>
       ) : (
-        <div className={burgerIngredientsStyle.main_container}>
+        <div className={style.main_container}>
           <h1 className="mt-10 mb-5 text text_type_main-large">
             Соберите бургер
           </h1>
-          <div className="" style={{ display: "flex" }}>
+          <div className={style.tab_container}>
             <Tab value="bun" active={current === "bun"} onClick={onTabClick}>
               Булки
             </Tab>
@@ -49,14 +49,12 @@ const BurgerIngredients = ({ data }) => {
           </div>
 
           <div
-            className={`${burgerIngredientsStyle.ingredients_container} mt-10 ingredients-container`}
+            className={`${style.ingredients_container} mt-10 ingredients-container`}
           >
             {burgerIngredientArr.map((group, index) => (
               <section key={index + 1}>
                 <h2 className="mb-6 text text_type_main-medium">{group}</h2>
-                <ul
-                  className={`${burgerIngredientsStyle.list} pt-6 pb-10 pr-4 pl-4`}
-                >
+                <ul className={`${style.list} pt-6 pb-10 pr-4 pl-4`}>
                   <BurgerIngredientGroup
                     group={group}
                     data={data}

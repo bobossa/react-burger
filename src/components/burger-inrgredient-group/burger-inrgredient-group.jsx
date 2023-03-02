@@ -1,4 +1,6 @@
 import BurgerIngredient from "../burger-ingredient/burger-ingredient";
+import PropTypes from "prop-types";
+import { IngredientType } from "../../utils/prop-types";
 
 const BurgerIngredientGroup = ({
   group,
@@ -16,12 +18,20 @@ const BurgerIngredientGroup = ({
     (item) =>
       item.type === burgerIngredientDict[group] && (
         <BurgerIngredient
+          key={item._id}
           data={item}
           setTargetIndegrient={setTargetIndegrient}
           setIngredientModalOpen={setIngredientModalOpen}
         />
       )
   );
+};
+
+BurgerIngredientGroup.propTypes = {
+  group: PropTypes.string.isRequired,
+  data: PropTypes.shape(IngredientType).isRequired,
+  setTargetIndegrient: PropTypes.func.isRequired,
+  setIngredientModalOpen: PropTypes.func.isRequired,
 };
 
 export default BurgerIngredientGroup;

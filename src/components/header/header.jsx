@@ -5,39 +5,34 @@ import {
   BurgerIcon,
   ListIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
-import headerStyles from "./header.module.css";
+import style from "./header.module.css";
 
 const AppHeader = () => {
   return (
-    <header
-      className={`${headerStyles.header} text text_type_main-default pt-4 pb-4`}
-    >
+    <header className={`${style.header} text text_type_main-default pt-4 pb-4`}>
       <nav>
-        <ul className={headerStyles.list}>
+        <ul className={style.list}>
           <li>
             <a
               href="#"
-              className={`pt-5 pr-5 pb-5 ${headerStyles.link_active} ${headerStyles.link}`}
+              className={`pt-5 pr-5 pb-5 ${style.link_active} ${style.link}`}
             >
               <BurgerIcon type="primary" />
               <span className={`ml-2`}>Конструктор</span>
             </a>
           </li>
           <li>
-            <a href="#" className={`p-5 ${headerStyles.link}`}>
+            <a href="#" className={`p-5 ${style.link}`}>
               <ListIcon type="secondary" />
               <span className={`ml-2`}>Лента заказов</span>
             </a>
           </li>
         </ul>
       </nav>
-      <div className={headerStyles.logo}>
+      <div className={style.logo}>
         <Logo />
       </div>
-      <a
-        href="#"
-        className={`p-5 ${headerStyles.link} ${headerStyles.profile}`}
-      >
+      <a href="#" className={`p-5 ${style.link} ${style.profile}`}>
         <ProfileIcon type="secondary" />
         <span className={`ml-2`}>Личный кабинет</span>
       </a>

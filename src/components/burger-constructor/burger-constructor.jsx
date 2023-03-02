@@ -5,7 +5,7 @@ import {
   Button,
   CurrencyIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
-import burgerConstructorStyle from "./burger-constructor.module.css";
+import style from "./burger-constructor.module.css";
 import PropTypes from "prop-types";
 import { IngredientType } from "../../utils/prop-types";
 import Modal from "../modal/modal";
@@ -34,9 +34,7 @@ const BurgerConstructor = ({ data }) => {
           <OrderDetails onClose={setOrderDetailsModalOpen} data={ORDER_DATA} />
         </Modal>
       ) : (
-        <div
-          className={`${burgerConstructorStyle.constructor_container} pt-25`}
-        >
+        <div className={`${style.constructor_container} pt-25`}>
           <div className="pr-6">
             <ConstructorElement
               type="top"
@@ -46,9 +44,9 @@ const BurgerConstructor = ({ data }) => {
               thumbnail={bun.image}
             />
           </div>
-          <ul className={`${burgerConstructorStyle.list} pl-4 pr-4`}>
+          <ul className={`${style.list} pl-4 pr-4`}>
             {ingredients.map((ingredient, index) => (
-              <li key={index} className={burgerConstructorStyle.list_item}>
+              <li key={index} className={style.list_item}>
                 <DragIcon />
                 <ConstructorElement
                   text={ingredient.name}
@@ -68,9 +66,7 @@ const BurgerConstructor = ({ data }) => {
             />
           </div>
 
-          <div
-            className={`${burgerConstructorStyle.button_container} pt-6 pr-6`}
-          >
+          <div className={`${style.button_container} pt-6 pr-6`}>
             <div className="mr-10">
               <span className="text text_type_digits-medium mr-2">{total}</span>
               <CurrencyIcon type="primary" />

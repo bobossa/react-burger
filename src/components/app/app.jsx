@@ -1,14 +1,11 @@
 import React from "react";
-import appStyles from "./app.module.css";
-
 import AppHeader from "../header/header";
 import BurgerIngredients from "../burger-ingredients/burger-ingredients";
 import BurgerConstructor from "../burger-constructor/burger-constructor";
 import Error from "../error/error";
 import Loading from "../loading/loading";
-import OrderDetails from "../order-details/order-details";
-import IngredientDetails from "../ingredients-details/ingredient-details";
 import { getIngredients } from "../../utils/burger-api";
+import style from "./app.module.css";
 
 export default function App() {
   const [data, setData] = React.useState([]);
@@ -31,10 +28,10 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`${appStyles.app} pb-10`}>
+    <div className={`${style.app} pb-10`}>
       <AppHeader />
-      <main className={appStyles.main}>
-        <section className={appStyles.main_container}>
+      <main className={style.main}>
+        <section className={style.main_container}>
           {hasError ? (
             <Error />
           ) : loading ? (

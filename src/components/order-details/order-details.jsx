@@ -1,14 +1,12 @@
-import orderDetailsStyles from "./order-details.module.css";
+import style from "./order-details.module.css";
 import done from "../../images/done.png";
 import PropTypes from "prop-types";
 import { IngredientType } from "../../utils/prop-types";
 
 const OrderDetails = ({ data }) => {
   return (
-    <div className={`${orderDetailsStyles.container}`}>
-      <h3
-        className={`text text_type_digits-large pt-10 ${orderDetailsStyles.title}`}
-      >
+    <div className={`${style.container}`}>
+      <h3 className={`text text_type_digits-large pt-10 ${style.title}`}>
         {data.orderNumber}
       </h3>
       <p className="text text_type_main-medium pt-8 pb-15">

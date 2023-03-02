@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import modalStyles from "./modal.module.css";
+import style from "./modal.module.css";
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
@@ -24,17 +24,14 @@ const Modal = ({ children, onClose, title = "" }) => {
   const contentModal = (
     <>
       <ModalOverlay onClose={onClose} />
-      <div className={`${modalStyles.container} pt-15 pr-10 pl-10 pb-15`}>
-        <header className={modalStyles.header}>
+      <div className={`${style.container} pt-15 pr-10 pl-10 pb-15`}>
+        <header className={style.header}>
           {title && (
-            <h2 className={`${modalStyles.title} text text_type_main-large`}>
+            <h2 className={`${style.title} text text_type_main-large`}>
               {title}
             </h2>
           )}
-          <button
-            onClick={() => onClose(false)}
-            className={modalStyles.closeButton}
-          >
+          <button onClick={() => onClose(false)} className={style.closeButton}>
             <CloseIcon type="primary" />
           </button>
         </header>
