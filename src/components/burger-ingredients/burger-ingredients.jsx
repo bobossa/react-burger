@@ -11,7 +11,7 @@ import BurgerIngredientGroup from "../burger-inrgredient-group/burger-inrgredien
 const BurgerIngredients = ({ data }) => {
   const [isIngredientsModalOpen, setIngredientModalOpen] =
     React.useState(false);
-  const [targetIndegrient, setTargetIndegrient] = React.useState({});
+  const [targetIndegrient, setTargetIndegrient] = React.useState(null);
   const [current, setCurrent] = React.useState("bun");
 
   const onTabClick = (title) => setCurrent(title);
