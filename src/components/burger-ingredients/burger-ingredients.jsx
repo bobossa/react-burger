@@ -1,16 +1,12 @@
 import React from "react";
-import {
-  Tab,
-  CurrencyIcon,
-  Counter,
-} from "@ya.praktikum/react-developer-burger-ui-components";
+import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
 import Modal from "../modal/modal";
 import IngredientDetails from "../ingredients-details/ingredient-details";
 
 import burgerIngredientsStyle from "./burger-ingredients.module.css";
 import PropTypes from "prop-types";
 import { IngredientType } from "../../utils/prop-types";
-import BurgerIngredient from "../burger-ingredient/burger-ingredient";
+import BurgerIngredientGroup from "../burger-inrgredient-group/burger-inrgredient-group";
 
 const BurgerIngredients = ({ data }) => {
   const [isIngredientsModalOpen, setIngredientModalOpen] =
@@ -19,6 +15,8 @@ const BurgerIngredients = ({ data }) => {
   const [current, setCurrent] = React.useState("bun");
 
   const onTabClick = (title) => setCurrent(title);
+
+  const burgerIngredientArr = ["Булки", "Соусы", "Начинки"];
 
   return (
     <>
@@ -53,51 +51,21 @@ const BurgerIngredients = ({ data }) => {
           <div
             className={`${burgerIngredientsStyle.ingredients_container} mt-10 ingredients-container`}
           >
-            <h2 className="mb-6 text text_type_main-medium">Булки</h2>
-            <ul
-              className={`${burgerIngredientsStyle.list} pt-6 pb-10 pr-4 pl-4`}
-            >
-              {data.map(
-                (item) =>
-                  item.type === "bun" && (
-                    <BurgerIngredient
-                      data={item}
-                      setTargetIndegrient={setTargetIndegrient}
-                      setIngredientModalOpen={setIngredientModalOpen}
-                    />
-                  )
-              )}
-            </ul>
-            <h2 className="mb-6 text text_type_main-medium">Соусы</h2>
-            <div
-              className={`${burgerIngredientsStyle.list} pt-6 pb-10 pr-4 pl-4`}
-            >
-              {data.map(
-                (item) =>
-                  item.type === "sauce" && (
-                    <BurgerIngredient
-                      data={item}
-                      setTargetIndegrient={setTargetIndegrient}
-                      setIngredientModalOpen={setIngredientModalOpen}
-                    />
-                  )
-              )}
-            </div>
-            <h2 className="mb-6 text text_type_main-medium">Начинки</h2>
-            <div
-              className={`${burgerIngredientsStyle.list} pt-6 pb-10 pr-4 pl-4`}
-            >
-              {data.map(
-                (item) =>
-                  item.type === "main" && (
-                    <BurgerIngredient
-                      data={item}
-                      setTargetIndegrient={setTargetIndegrient}
-                      setIngredientModalOpen={setIngredientModalOpen}
-                    />
-                  )
-              )}
-            </div>
+            {burgerIngredientArr.map((group, index) => (
+              <section key={index + 1}>
+                <h2 className="mb-6 text text_type_main-medium">{group}</h2>
+                <ul
+                  className={`${burgerIngredientsStyle.list} pt-6 pb-10 pr-4 pl-4`}
+                >
+                  <BurgerIngredientGroup
+                    group={group}
+                    data={data}
+                    setTargetIndegrient={setTargetIndegrient}
+                    setIngredientModalOpen={setIngredientModalOpen}
+                  />
+                </ul>
+              </section>
+            ))}
           </div>
         </div>
       )}

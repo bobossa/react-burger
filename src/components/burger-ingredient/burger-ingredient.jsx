@@ -18,11 +18,7 @@ const BurgerIngredient = ({
   };
 
   return (
-    <li
-      onClick={handleClick}
-      key={data._id}
-      className={burgerIngredientStyle.list_item}
-    >
+    <li onClick={handleClick} className={burgerIngredientStyle.list_item}>
       <img
         alt={data.name}
         src={data.image}
