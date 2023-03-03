@@ -1,7 +1,6 @@
 import style from "./order-details.module.css";
 import done from "../../images/done.png";
 import PropTypes from "prop-types";
-import { IngredientType } from "../../utils/prop-types";
 
 const OrderDetails = ({ data }) => {
   return (
@@ -24,7 +23,8 @@ const OrderDetails = ({ data }) => {
 };
 
 OrderDetails.propTypes = {
-  data: PropTypes.shape({ IngredientType }).isRequired,
+  data: PropTypes.shape({ orderNumber: PropTypes.string.isRequired })
+    .isRequired,
 };
 
 export default OrderDetails;

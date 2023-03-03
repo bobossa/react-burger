@@ -17,9 +17,9 @@ export default function App() {
       try {
         const json = await getIngredients();
         setData(json.data);
-        setLoading(false);
       } catch (error) {
         setError(true);
+      } finally {
         setLoading(false);
       }
     };

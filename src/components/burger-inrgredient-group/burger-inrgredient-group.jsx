@@ -29,7 +29,8 @@ const BurgerIngredientGroup = ({
 
 BurgerIngredientGroup.propTypes = {
   group: PropTypes.string.isRequired,
-  data: PropTypes.shape(IngredientType).isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape(IngredientType).isRequired)
+    .isRequired,
   setTargetIndegrient: PropTypes.func.isRequired,
   setIngredientModalOpen: PropTypes.func.isRequired,
 };
