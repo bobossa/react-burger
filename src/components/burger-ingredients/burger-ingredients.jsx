@@ -22,10 +22,7 @@ const BurgerIngredients = ({ data }) => {
     <>
       {isIngredientsModalOpen && (
         <Modal title="Детали ингредиентов" onClose={setIngredientModalOpen}>
-          <IngredientDetails
-            onClose={setIngredientModalOpen}
-            data={targetIndegrient}
-          />
+          <IngredientDetails data={targetIndegrient} />
         </Modal>
       )}
 
