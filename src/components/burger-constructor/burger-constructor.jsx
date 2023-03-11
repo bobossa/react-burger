@@ -34,13 +34,17 @@ import SelectedIngredient from "../selected-ingredient/selected-igredient";
 
 const BurgerConstructor = () => {
   const dispatch = useDispatch();
-  const selectedIngredients = useSelector((store) => store.selectedIngredients);
-  const initialIngredients = useSelector((store) => store.ingredients);
+  const selectedIngredients = useSelector(
+    (store) => store.ingredientReducer.selectedIngredients
+  );
+  const initialIngredients = useSelector(
+    (store) => store.ingredientReducer.ingredients
+  );
 
   const isOrderDetailsModalOpen = useSelector(
-    (store) => store.isOrderDetailsModalOpen
+    (store) => store.modalReducer.isOrderDetailsModalOpen
   );
-  const orderDetails = useSelector((store) => store.orderDetails);
+  const orderDetails = useSelector((store) => store.modalReducer.orderDetails);
   //const data = React.useContext(IngredientsContext);
 
   const { bun, ingredients, totalSum } = useMemo(() => {
@@ -124,7 +128,6 @@ const BurgerConstructor = () => {
   );
 
   const onModalClose = () => {
-    console.log("onOrderDetailsModalClose");
     isOrderDetailsModalOpen && dispatch(setOrderDetailsModalOpen(false));
     isOrderDetailsModalOpen && dispatch(orderDetailsDelete());
   };
@@ -191,6 +194,7 @@ const BurgerConstructor = () => {
             type="primary"
             size="large"
             onClick={handleOrderButtonClick}
+            disabled={selectedIngredients.length === 0}
           >
             Оформить заказ
           </Button>

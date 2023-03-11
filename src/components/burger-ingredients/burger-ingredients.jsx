@@ -17,12 +17,14 @@ const BurgerIngredients = () => {
   const sauceContentRef = useRef(null);
   const mainContentRef = useRef(null);
   const isIngredientsModalOpen = useSelector(
-    (store) => store.isIngredientsModalOpen
+    (store) => store.modalReducer.isIngredientsModalOpen
   );
 
   const [targetIndegrient, setTargetIndegrient] = React.useState(null);
   const [current, setCurrent] = React.useState("bun");
-  const initialIngredients = useSelector((store) => store.ingredients);
+  const initialIngredients = useSelector(
+    (store) => store.ingredientReducer.ingredients
+  );
 
   const onTabClick = (tab) => {
     setCurrent(tab);

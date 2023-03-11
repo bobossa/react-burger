@@ -14,7 +14,9 @@ export default function App() {
   const [data, setData] = React.useState([]);
   const [hasError, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
-  const ingredientsReq = useSelector((store) => store.ingredientsReq);
+  const ingredientsReq = useSelector(
+    (store) => store.ingredientReducer.ingredientsReq
+  );
 
   const dispatch = useDispatch();
 

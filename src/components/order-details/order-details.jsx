@@ -5,7 +5,7 @@ import done from "../../images/done.png";
 import PropTypes from "prop-types";
 
 const OrderDetails = () => {
-  const data = useSelector((store) => store.orderDetails);
+  const data = useSelector((store) => store.orderReducer.orderDetails);
   console.log(data);
   return (
     <div className={`${style.container}`}>

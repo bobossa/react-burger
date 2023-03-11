@@ -13,8 +13,12 @@ import { ingredientSelect } from "../../services/actions/ingredients";
 
 const BurgerIngredient = ({ data }) => {
   const dispatch = useDispatch();
-  const selectedIngredients = useSelector((store) => store.selectedIngredients);
-  const initialIngredients = useSelector((store) => store.ingredients);
+  const selectedIngredients = useSelector(
+    (store) => store.ingredientReducer.selectedIngredients
+  );
+  const initialIngredients = useSelector(
+    (store) => store.ingredientReducer.ingredients
+  );
 
   const handleClick = () => {
     dispatch(ingredientSelect(data));

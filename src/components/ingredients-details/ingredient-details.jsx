@@ -2,7 +2,9 @@ import { useSelector } from "react-redux";
 import style from "./ingredients-details.module.css";
 
 const IngredientDetails = () => {
-  const selectedIngredient = useSelector((store) => store.selectedIngredient);
+  const selectedIngredient = useSelector(
+    (store) => store.ingredientReducer.selectedIngredient
+  );
   return (
     <div className={`${style.container}`}>
       <img
