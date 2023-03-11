@@ -1,15 +1,18 @@
+import { useSelector } from "react-redux";
 import style from "./ingredients-details.module.css";
 
-import PropTypes from "prop-types";
-import { IngredientType } from "../../utils/prop-types";
-
-const IngredientDetails = ({ data }) => {
+const IngredientDetails = () => {
+  const selectedIngredient = useSelector((store) => store.selectedIngredient);
   return (
     <div className={`${style.container}`}>
-      <img width="480" height="240" alt={data.name} src={data && data.image} />
+      <img
+        className={`${style.img}`}
+        alt={selectedIngredient.name}
+        src={selectedIngredient && selectedIngredient.image}
+      />
 
       <p className="text text_type_main-medium pt-4 pb-8">
-        {data && data.name}
+        {selectedIngredient && selectedIngredient.name}
       </p>
 
       <ul className={`${style.list} pt-8`}>
@@ -17,36 +20,32 @@ const IngredientDetails = ({ data }) => {
           className={`${style.listItem} text text_type_main-default text_color_inactive`}
         >
           <span>Калории,ккал</span>
-          {data.calories}
+          {selectedIngredient.calories}
         </li>
 
         <li
           className={`${style.listItem} text text_type_main-default text_color_inactive`}
         >
           <span>Белки, г</span>
-          {data.proteins}
+          {selectedIngredient.proteins}
         </li>
 
         <li
           className={`${style.listItem} text text_type_main-default text_color_inactive`}
         >
           <span>Жиры, г</span>
-          {data.fat}
+          {selectedIngredient.fat}
         </li>
 
         <li
           className={`${style.listItem} text text_type_main-default text_color_inactive`}
         >
           <span>Углеводы, г</span>
-          {data.carbohydrates}
+          {selectedIngredient.carbohydrates}
         </li>
       </ul>
     </div>
   );
-};
-
-IngredientDetails.propTypes = {
-  data: PropTypes.shape(IngredientType).isRequired,
 };
 
 export default IngredientDetails;

@@ -11,3 +11,11 @@
 .list_item {
   position: relative;
 }
+.list_item:hover {
+  cursor: pointer;
+}
+
+.dragging {
+  position: relative;
+  cursor: grab;
+}

@@ -21,3 +21,7 @@
   flex-direction: column;
   text-align: center;
 }
+.img {
+  width: 480px;
+  height: 240px;
+}
