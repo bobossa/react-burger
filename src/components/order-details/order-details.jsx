@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 
 const OrderDetails = () => {
   const data = useSelector((store) => store.orderReducer.orderDetails);
-  console.log(data);
   return (
     <div className={`${style.container}`}>
       <h3 className={`text text_type_digits-large pt-10 ${style.title}`}>

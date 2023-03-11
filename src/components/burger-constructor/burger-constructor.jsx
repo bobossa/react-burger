@@ -131,7 +131,6 @@ const BurgerConstructor = () => {
     isOrderDetailsModalOpen && dispatch(setOrderDetailsModalOpen(false));
     isOrderDetailsModalOpen && dispatch(orderDetailsDelete());
   };
-  console.log(ingredients);
   return (
     <>
       {isOrderDetailsModalOpen && (
