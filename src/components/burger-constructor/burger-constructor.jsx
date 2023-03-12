@@ -44,7 +44,7 @@ const BurgerConstructor = () => {
   const isOrderDetailsModalOpen = useSelector(
     (store) => store.modalReducer.isOrderDetailsModalOpen
   );
-  const orderDetails = useSelector((store) => store.modalReducer.orderDetails);
+  const orderDetails = useSelector((store) => store.orderReducer.orderDetails);
   //const data = React.useContext(IngredientsContext);
 
   const { bun, ingredients, totalSum } = useMemo(() => {

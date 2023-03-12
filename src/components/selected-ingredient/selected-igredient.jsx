@@ -17,7 +17,9 @@ const SelectedIngredient = ({
   moveIngredientFunc,
 }) => {
   const dispatch = useDispatch();
-  const selectedIngredients = useSelector((state) => state.selectedIngredients);
+  const selectedIngredients = useSelector(
+    (store) => store.ingredientReducer.selectedIngredients
+  );
   const ref = useRef(null);
   const [{ isDrag }, drag] = useDrag({
     type: "selected-ingredient",

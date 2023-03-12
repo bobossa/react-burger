@@ -3,12 +3,18 @@ import { ingredientsDelete } from "../actions/ingredients";
 
 import {
   ORDER_DETAILS_GET,
+  ORDER_DETAILS_DELETE,
   ORDER_DETAILS_GET_FAIL,
   ORDER_DETAILS_GET_OK,
-  ORDER_DETAILS_DELETE,
 } from "../actions/actions";
 
-export const setOrderDetailsLoad = () => ({ type: ORDER_DETAILS_GET });
+export const setOrderDetailsLoad = () => ({
+  type: ORDER_DETAILS_GET,
+});
+
+export const orderDetailsDelete = () => ({
+  type: ORDER_DETAILS_DELETE,
+});
 
 export const setOrderDetailsLoadOk = (data) => ({
   type: ORDER_DETAILS_GET_OK,
@@ -18,8 +24,6 @@ export const setOrderDetailsLoadOk = (data) => ({
 export const setOrderDataLoadingFailed = () => ({
   type: ORDER_DETAILS_GET_FAIL,
 });
-
-export const orderDetailsDelete = () => ({ type: ORDER_DETAILS_DELETE });
 
 export function getOrdeDetails(ingredientsIds) {
   return function (dispatch) {
@@ -31,9 +35,7 @@ export function getOrdeDetails(ingredientsIds) {
           dispatch(setOrderDetailsLoadOk(data));
         }
       })
-      .then(() => {
-        dispatch(ingredientsDelete());
-      })
-      .catch(() => dispatch(setOrderDataLoadingFailed()));
+      .then(dispatch(ingredientsDelete()))
+      .catch(dispatch(setOrderDataLoadingFailed()));
   };
 }

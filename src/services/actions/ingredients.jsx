@@ -1,15 +1,15 @@
 import { getIngredientsList } from "../../utils/burger-api";
 
 import {
-  INGREDIENTS_GET,
-  INGREDIENTS_GET_FAIL,
-  INGREDIENTS_GET_OK,
-  INGREDIENT_SELECT,
-  SELECTED_INGREDIENT_DELETE,
   INGREDIENT_ADD,
   INGREDIENT_DELETE,
   INGREDIENTS_DELETE,
+  INGREDIENTS_GET,
+  INGREDIENT_SELECT,
+  SELECTED_INGREDIENT_DELETE,
   INGREDIENT_MOVE,
+  INGREDIENTS_GET_FAIL,
+  INGREDIENTS_GET_OK,
 } from "../actions/actions";
 
 export const getIngredients = () => {
@@ -35,15 +35,6 @@ export const getIngredients = () => {
   };
 };
 
-export const ingredientSelect = (ingredient) => ({
-  type: INGREDIENT_SELECT,
-  result: ingredient,
-});
-
-export const selectedIngredientDelete = () => ({
-  type: SELECTED_INGREDIENT_DELETE,
-});
-
 export const ingredientAdd = (newIngredientsArray) => ({
   type: INGREDIENT_ADD,
   result: newIngredientsArray,
@@ -54,7 +45,18 @@ export const ingredientDelete = (newIngredientsArray) => ({
   result: newIngredientsArray,
 });
 
-export const ingredientsDelete = () => ({ type: INGREDIENTS_DELETE });
+export const ingredientsDelete = () => ({
+  type: INGREDIENTS_DELETE,
+});
+
+export const ingredientSelect = (ingredient) => ({
+  type: INGREDIENT_SELECT,
+  result: ingredient,
+});
+
+export const selectedIngredientDelete = () => ({
+  type: SELECTED_INGREDIENT_DELETE,
+});
 
 export const ingredientsMove = (newIngredientsArray) => ({
   type: INGREDIENT_MOVE,
