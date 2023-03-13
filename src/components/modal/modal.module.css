@@ -1,5 +1,5 @@
 .container {
-  in-width: 720px;
+  min-width: 720px;
   min-height: 300px;
   position: fixed;
   display: flex;
