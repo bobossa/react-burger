@@ -19,3 +19,8 @@
   position: relative;
   cursor: grab;
 }
+
+.link {
+  text-decoration: none;
+  color: white;
+}

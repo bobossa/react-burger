@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding-top: 200px;
+  flex-direction: column;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}

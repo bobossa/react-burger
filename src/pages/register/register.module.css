@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+  align-items: center;
+}
+
+.form {
+  width: 480px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  color: #4c4cff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.link:active {
+  color: white;
+}

@@ -1,5 +1,6 @@
 import { useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   DragIcon,
   ConstructorElement,
@@ -46,6 +47,9 @@ const BurgerConstructor = () => {
   );
   const orderDetails = useSelector((store) => store.orderReducer.orderDetails);
   //const data = React.useContext(IngredientsContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const userData = useSelector((state) => state.userReducer.userData);
 
   const { bun, ingredients, totalSum } = useMemo(() => {
     const bun = selectedIngredients.find((item) => item.type === "bun");
@@ -72,9 +76,12 @@ const BurgerConstructor = () => {
 
   const handleOrderButtonClick = () => {
     const dataIds = selectedIngredients.map((d) => d._id);
-
-    dispatch(getOrdeDetails(dataIds));
-    dispatch(setOrderDetailsModalOpen(true));
+    if (userData) {
+      dispatch(getOrdeDetails(dataIds));
+      dispatch(setOrderDetailsModalOpen(true));
+    } else {
+      navigate("/login", { state: { background: location } });
+    }
   };
 
   const [{ isHover }, dropIngredientsContainer] = useDrop({

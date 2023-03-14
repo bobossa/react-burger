@@ -10,6 +10,7 @@ import { IngredientType } from "../../utils/prop-types";
 import style from "./burger-ingredient.module.css";
 import { setIngredientModalOpen } from "../../services/actions/modal";
 import { ingredientSelect } from "../../services/actions/ingredients";
+import { Link, useLocation } from "react-router-dom";
 
 const BurgerIngredient = ({ data }) => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const BurgerIngredient = ({ data }) => {
   const initialIngredients = useSelector(
     (store) => store.ingredientReducer.ingredients
   );
+  const location = useLocation();
 
   const handleClick = () => {
     dispatch(ingredientSelect(data));
@@ -47,6 +49,7 @@ const BurgerIngredient = ({ data }) => {
       ingredientCount: ingredientCount,
     };
   }, [selectedIngredients]);
+  console.log(location);
 
   return (
     <li
@@ -54,21 +57,29 @@ const BurgerIngredient = ({ data }) => {
       onClick={handleClick}
       ref={dragRef}
     >
-      <img
-        alt={data.name}
-        src={data.image}
-        className={`${style.image} ml-5 mr-5`}
-      />
-      <div className={`${style.price} mt-5 mb-5`}>
-        <span className="text text_type_digits-default mr-2">{data.price}</span>
-        <CurrencyIcon type="primary" />
-      </div>
-      <h3 className={`${style.text} text text_type_main-default`}>
-        {data.name}
-      </h3>
-      {ingredientCount > 0 && (
-        <Counter count={ingredientCount} size="default" />
-      )}
+      <Link
+        className={style.link}
+        to={`/ingredients/${data._id}`}
+        state={{ background: location }}
+      >
+        <img
+          alt={data.name}
+          src={data.image}
+          className={`${style.image} ml-5 mr-5`}
+        />
+        <div className={`${style.price} mt-5 mb-5`}>
+          <span className="text text_type_digits-default mr-2">
+            {data.price}
+          </span>
+          <CurrencyIcon type="primary" />
+        </div>
+        <h3 className={`${style.text} text text_type_main-default`}>
+          {data.name}
+        </h3>
+        {ingredientCount > 0 && (
+          <Counter count={ingredientCount} size="default" />
+        )}
+      </Link>
     </li>
   );
 };

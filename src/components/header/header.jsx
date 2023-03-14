@@ -6,6 +6,7 @@ import {
   ListIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import style from "./header.module.css";
+import { NavLink, Link } from "react-router-dom";
 
 const AppHeader = () => {
   return (
@@ -13,29 +14,50 @@ const AppHeader = () => {
       <nav>
         <ul className={style.list}>
           <li>
-            <a
-              href="#"
-              className={`pt-5 pr-5 pb-5 ${style.link_active} ${style.link}`}
+            <NavLink
+              exact={true}
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? `pt-5 pr-5 pb-5 ${style.link_active}`
+                  : `pt-5 pr-5 pb-5 ${style.link}`
+              }
+              to="/"
             >
               <BurgerIcon type="primary" />
               <span className={`ml-2`}>Конструктор</span>
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="#" className={`p-5 ${style.link}`}>
+            <NavLink
+              exact={true}
+              className={({ isActive, isPending }) =>
+                isActive ? `p-5 ${style.link_active}` : `p-5 ${style.link}`
+              }
+              to="/profile/orders"
+            >
               <ListIcon type="secondary" />
               <span className={`ml-2`}>Лента заказов</span>
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
       <div className={style.logo}>
-        <Logo />
+        <Link to={"/"}>
+          <Logo />
+        </Link>
       </div>
-      <a href="#" className={`p-5 ${style.link} ${style.profile}`}>
+      <NavLink
+        exact={true}
+        className={({ isActive, isPending }) =>
+          isActive
+            ? `p-5 ${style.link_active} ${style.link} ${style.profile} `
+            : `p-5 ${style.link} ${style.profile}`
+        }
+        to="/profile"
+      >
         <ProfileIcon type="secondary" />
         <span className={`ml-2`}>Личный кабинет</span>
-      </a>
+      </NavLink>
     </header>
   );
 };

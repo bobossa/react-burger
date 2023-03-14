@@ -9,6 +9,7 @@ import BurgerIngredientGroup from "../burger-inrgredient-group/burger-inrgredien
 import { setIngredientModalOpen } from "../../services/actions/modal";
 
 import { selectedIngredientDelete } from "../../services/actions/ingredients";
+import { useLocation, Routes, Route, useNavigate } from "react-router-dom";
 
 const BurgerIngredients = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,9 @@ const BurgerIngredients = () => {
   const bunContentRef = useRef(null);
   const sauceContentRef = useRef(null);
   const mainContentRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const background = location.state && location.state.background;
   const isIngredientsModalOpen = useSelector(
     (store) => store.modalReducer.isIngredientsModalOpen
   );
@@ -87,14 +91,22 @@ const BurgerIngredients = () => {
   const onModalClose = () => {
     isIngredientsModalOpen && dispatch(setIngredientModalOpen(false));
     isIngredientsModalOpen && dispatch(selectedIngredientDelete());
+    background && navigate(-1);
   };
+  console.log(location);
 
   return (
     <>
-      {isIngredientsModalOpen && (
-        <Modal title="Детали ингредиентов" onClose={onModalClose}>
-          <IngredientDetails data={targetIndegrient} />
-        </Modal>
+      {background && (
+        <Route
+          exact
+          path="/ingredients/:ingredientId"
+          children={
+            <Modal title="Детали ингредиентов" onClose={onModalClose}>
+              <IngredientDetails data={targetIndegrient} />
+            </Modal>
+          }
+        />
       )}
 
       <div className={style.main_container}>
